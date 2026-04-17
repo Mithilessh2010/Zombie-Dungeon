@@ -1,0 +1,6 @@
+{
+  "name": "Stickman RPG: Ancient Ascendance",
+  "description": "A dark fantasy stickman combat RPG featuring sacred rituals, ancient pacts, and technical class-based combat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["game-development", "animations"]
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg:        #111827;
+  --color-panel:     #1F2937;
+  --color-panel-alt: #263241;
+  --color-border:    #374151;
+  --color-border-hi: #E5E7EB;
+  --color-highlight: #D4A017;
+  --color-muted:     #6B7280;
+  --color-text:      #E5E7EB;
+
+  --color-knight: #D4A017;
+  --color-rogue:  #A855F7;
+  --color-mage:   #3B82F6;
+  --color-archer: #22C55E;
+
+  --color-hp:  #EF4444;
+  --color-en:  #3B82F6;
+  --color-xp:  #22C55E;
+
+  --font-pixel: "Pixelify Sans", monospace;
+  --font-mono:  "IBM Plex Mono", monospace;
+}
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #111827;
+    color: #E5E7EB;
+    font-family: "IBM Plex Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  canvas { image-rendering: pixelated; }
+}
