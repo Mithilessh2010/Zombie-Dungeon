@@ -771,7 +771,7 @@ export class Game {
       this.enemiesToSpawn--;
   }
 
-  private addXp(amount: number) {
+  addXp(amount: number) {
       this.experience += amount;
       if (this.experience >= this.nextLevelXp) {
           this.experience -= this.nextLevelXp;

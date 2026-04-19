@@ -249,10 +249,58 @@ export function AdminPanel({ game }: AdminPanelProps) {
         >
           UTILITIES
         </div>
-        <div style={{ display: 'flex', gap: 6 }}>
+        <div style={{ display: 'flex', gap: 6, flexDirection: 'column' }}>
+          <div style={{ display: 'flex', gap: 6 }}>
+            <button
+              onClick={() => {
+                game.playerHealth = game.playerMaxHealth;
+              }}
+              style={buttonStyle('#1F2937')}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#2a3544';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
+              }}
+            >
+              HEAL
+            </button>
+            <button
+              onClick={() => {
+                game.enemies.forEach(e => {
+                  e.health = 0;
+                });
+              }}
+              style={buttonStyle('#1F2937')}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#2a3544';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
+              }}
+            >
+              KILL ALL
+            </button>
+            <button
+              onClick={() => {
+                game.abilities.forEach(a => {
+                  a.isUnlocked = true;
+                });
+              }}
+              style={buttonStyle('#1F2937')}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#2a3544';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
+              }}
+            >
+              UNLOCK ALL
+            </button>
+          </div>
           <button
             onClick={() => {
-              game.playerHealth = game.playerMaxHealth;
+              game.addXp(game.nextLevelXp);
             }}
             style={buttonStyle('#1F2937')}
             onMouseEnter={(e) => {
@@ -262,39 +310,7 @@ export function AdminPanel({ game }: AdminPanelProps) {
               (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
             }}
           >
-            HEAL
-          </button>
-          <button
-            onClick={() => {
-              game.enemies.forEach(e => {
-                e.health = 0;
-              });
-            }}
-            style={buttonStyle('#1F2937')}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = '#2a3544';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
-            }}
-          >
-            KILL ALL
-          </button>
-          <button
-            onClick={() => {
-              game.abilities.forEach(a => {
-                a.isUnlocked = true;
-              });
-            }}
-            style={buttonStyle('#1F2937')}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = '#2a3544';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = '#1F2937';
-            }}
-          >
-            UNLOCK ALL
+            LEVEL UP
           </button>
         </div>
       </div>
