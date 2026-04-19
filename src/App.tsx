@@ -69,6 +69,7 @@ const ClassIcon = ({ id, color }: { id: string; color: string }) => {
 export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef    = useRef<HTMLCanvasElement>(null);
+  const victoryTriggeredRef = useRef(false);
   const [game, setGame]           = useState<Game | null>(null);
   const [gameState, setGameState] = useState<'menu' | 'playing' | 'gameover' | 'victory'>('menu');
   const [hovered, setHovered]     = useState<string | null>(null);
@@ -86,20 +87,31 @@ export default function App() {
         }
       };
 
+      // Check for victory every 50ms
+      const victoryInterval = setInterval(() => {
+        if (newGame.towerCompleted && !victoryTriggeredRef.current) {
+          victoryTriggeredRef.current = true;
+          setGameState('victory');
+          clearInterval(victoryInterval);
+        }
+      }, 50);
+
       window.addEventListener('resize', handleResize);
       handleResize();
       return () => {
         window.removeEventListener('resize', handleResize);
+        clearInterval(victoryInterval);
         newGame.destroy();
       };
     }
   }, []);
 
+  // Reset victory trigger when starting a new game
   useEffect(() => {
-    if (game && gameState === 'playing' && game.towerCompleted) {
-      setGameState('victory');
+    if (gameState === 'playing') {
+      victoryTriggeredRef.current = false;
     }
-  }, [game, gameState]);
+  }, [gameState]);
 
   const startGame = (cls: string) => {
     if (game) {
