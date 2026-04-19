@@ -17,6 +17,8 @@ export type AnimationState = 'idle' | 'run' | 'attack' | 'skill' | 'hurt' | 'dea
 
 export type RoomState = 'clearing' | 'dropped' | 'unlocked';
 
+export type GameOverState = 'death' | 'victory';
+
 export interface KeyEntity {
   x: number;
   y: number;

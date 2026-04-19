@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Game } from './game/Game';
 import { HUD } from './components/HUD';
 import { AdminPanel } from './components/AdminPanel';
+import { VictoryScreen } from './components/VictoryScreen';
 
 // ─── Class metadata ───────────────────────────────────────────────
 const CLASSES = [
@@ -69,7 +70,7 @@ export default function App() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const [game, setGame]           = useState<Game | null>(null);
-  const [gameState, setGameState] = useState<'menu' | 'playing' | 'gameover'>('menu');
+  const [gameState, setGameState] = useState<'menu' | 'playing' | 'gameover' | 'victory'>('menu');
   const [hovered, setHovered]     = useState<string | null>(null);
 
   useEffect(() => {
@@ -85,10 +86,19 @@ export default function App() {
         }
       };
 
+      // Check for victory
+      const checkVictory = setInterval(() => {
+        if (newGame.towerCompleted && gameState === 'playing') {
+          setGameState('victory');
+          clearInterval(checkVictory);
+        }
+      }, 100);
+
       window.addEventListener('resize', handleResize);
       handleResize();
       return () => {
         window.removeEventListener('resize', handleResize);
+        clearInterval(checkVictory);
         newGame.destroy();
       };
     }
@@ -315,6 +325,9 @@ export default function App() {
           </div>
         </div>
       )}
+
+      {/* ── VICTORY ── */}
+      {gameState === 'victory' && game && <VictoryScreen game={game} />}
     </div>
   );
 }

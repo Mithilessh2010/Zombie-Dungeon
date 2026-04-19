@@ -14,6 +14,8 @@ export class Game {
   cameraOffset: Vector2 = { x: 0, y: 0 };
   shakeDecay = 0.9;
   shakePower = 0;
+
+  towerCompleted = false;
   
   hitPauseTimer = 0;
 
@@ -517,7 +519,8 @@ export class Game {
 
   private nextRoom() {
       if (this.floor >= this.maxFloor) {
-          this.showNotification("TOWER CONQUERED");
+          this.towerCompleted = true;
+          this.playing = false;
           return;
       }
       this.floor++;
