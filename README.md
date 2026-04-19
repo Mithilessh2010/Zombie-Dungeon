@@ -11,6 +11,21 @@ Conquer 31 floors of increasingly difficult enemies. Choose your class, unlock a
 - `1` `2` `3` `4` / custom keybinds — abilities
 - Click an ability slot to rebind it
 
+**Admin Panel** (Testing & Debugging)
+- Press `Ctrl+Shift+D` during gameplay to open the admin panel
+- Jump to any floor (1-31) with manual input
+- Quick jump buttons: Start, Boss 1 (Floor 11), Boss 2 (Floor 21), Final (Floor 31)
+- Utilities: HEAL, KILL ALL, UNLOCK ALL
+- View real-time game state (floor, health, level, enemies, room state)
+
+**Abilities Unlock**
+Abilities unlock as you level up during gameplay:
+- Level 2: First ability
+- Level 5: Second ability
+- Level 8: Third ability
+- Level 11: Fourth ability
+- Level 14: Fifth ability
+
 **Classes**
 | Class  | Style             | HP  |
 |--------|-------------------|-----|
