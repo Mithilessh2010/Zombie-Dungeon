@@ -1,9 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { Game } from '../game/Game';
+import {
+  Shield, Sword, RotateCw, Zap, Crown, FlaskConical, Ghost,
+  Cloud, Flame, Snowflake, Waves, MoveUpRight, Star, Target,
+  ChevronLast, RefreshCw, Bomb, CloudRain,
+} from 'lucide-react';
 
 interface VictoryScreenProps {
   game: Game;
 }
+
+const IconMap: Record<string, React.ReactNode> = {
+  Shield: <Shield size={14} />,
+  Sword: <Sword size={14} />,
+  RotateCw: <RotateCw size={14} />,
+  Zap: <Zap size={14} />,
+  Crown: <Crown size={14} />,
+  FlaskConical: <FlaskConical size={14} />,
+  Ghost: <Ghost size={14} />,
+  Cloud: <Cloud size={14} />,
+  Flame: <Flame size={14} />,
+  Snowflake: <Snowflake size={14} />,
+  Waves: <Waves size={14} />,
+  MoveUpRight: <MoveUpRight size={14} />,
+  Star: <Star size={14} />,
+  Target: <Target size={14} />,
+  ChevronLast: <ChevronLast size={14} />,
+  RefreshCw: <RefreshCw size={14} />,
+  Bomb: <Bomb size={14} />,
+  CloudRain: <CloudRain size={14} />,
+};
 
 export function VictoryScreen({ game }: VictoryScreenProps) {
   const [danceFrame, setDanceFrame] = useState(0);
@@ -102,7 +128,9 @@ export function VictoryScreen({ game }: VictoryScreenProps) {
           border: '2px solid #D4A017',
           padding: '48px 56px',
           textAlign: 'center',
-          minWidth: 480,
+          minWidth: 700,
+          maxHeight: '90vh',
+          overflow: 'auto',
           borderRadius: 2,
           boxShadow: '0 8px 32px rgba(0,0,0,0.8)',
         }}
@@ -143,7 +171,7 @@ export function VictoryScreen({ game }: VictoryScreenProps) {
         <div
           style={{
             marginTop: 24,
-            marginBottom: 32,
+            marginBottom: 24,
             padding: '16px 0',
             borderTop: '1px solid #374151',
             borderBottom: '1px solid #374151',
@@ -163,6 +191,67 @@ export function VictoryScreen({ game }: VictoryScreenProps) {
           <div style={{ fontSize: 12, color: '#9CA3AF' }}>
             <span style={{ color: '#6B7280', marginRight: 16 }}>TOTAL SCORE</span>
             <span style={{ color: '#D4A017', fontWeight: 600 }}>{game.score}</span>
+          </div>
+        </div>
+
+        {/* Abilities Section (only 1-5) */}
+        <div style={{ marginBottom: 24 }}>
+          <div
+            style={{
+              fontSize: 9,
+              color: '#6B7280',
+              marginBottom: 12,
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              textAlign: 'left',
+              paddingBottom: 8,
+              borderBottom: '1px solid #374151',
+            }}
+          >
+            UNLOCKED ABILITIES
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr 1fr', gap: 8 }}>
+            {game.abilities
+              .filter((ab) => ab.isUnlocked && ['1', '2', '3', '4', '5'].includes(ab.keybind))
+              .sort((a, b) => {
+                const order = { '1': 0, '2': 1, '3': 2, '4': 3, '5': 4 };
+                return (order[a.keybind as keyof typeof order] ?? 99) - (order[b.keybind as keyof typeof order] ?? 99);
+              })
+              .map((ab) => (
+                <div
+                  key={ab.id}
+                  style={{
+                    background: '#111827',
+                    border: '1px solid #374151',
+                    padding: '10px 8px',
+                    fontSize: 8,
+                    color: '#E5E7EB',
+                    borderRadius: 2,
+                    textAlign: 'center',
+                  }}
+                >
+                  <div style={{ color: '#D4A017', marginBottom: 4, display: 'flex', justifyContent: 'center' }}>
+                    {IconMap[ab.icon] ?? <Zap size={12} />}
+                  </div>
+                  <div style={{ fontFamily: '"Pixelify Sans", monospace', fontSize: 9, fontWeight: 600, marginBottom: 4 }}>
+                    {ab.name}
+                  </div>
+                  <div style={{ fontSize: 8, color: '#6B7280', marginBottom: 4 }}>{ab.description}</div>
+                  <div
+                    style={{
+                      background: '#1F2937',
+                      border: '1px solid #374151',
+                      padding: '2px 4px',
+                      fontSize: 7,
+                      color: '#9CA3AF',
+                      letterSpacing: '0.05em',
+                      fontWeight: 600,
+                    }}
+                  >
+                    [{ab.keybind}]
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
 

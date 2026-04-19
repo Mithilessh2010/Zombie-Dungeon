@@ -520,7 +520,6 @@ export class Game {
   private nextRoom() {
       if (this.floor >= this.maxFloor) {
           this.towerCompleted = true;
-          this.playing = false;
           return;
       }
       this.floor++;
