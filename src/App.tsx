@@ -6,6 +6,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Game } from './game/Game';
 import { HUD } from './components/HUD';
+import { AdminPanel } from './components/AdminPanel';
 
 // ─── Class metadata ───────────────────────────────────────────────
 const CLASSES = [
@@ -230,7 +231,10 @@ export default function App() {
 
       {/* ── PLAYING ── */}
       {gameState === 'playing' && game && (
-        <HUD game={game} onGameOver={() => setGameState('gameover')} />
+        <>
+          <HUD game={game} onGameOver={() => setGameState('gameover')} />
+          <AdminPanel game={game} />
+        </>
       )}
 
       {/* ── GAME OVER ── */}

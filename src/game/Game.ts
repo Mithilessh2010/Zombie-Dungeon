@@ -170,7 +170,7 @@ export class Game {
     this.animationFrameId = requestAnimationFrame(this.loop);
   }
 
-  private initializeRoom() {
+  initializeRoom() {
       this.roomState = 'clearing';
       this.key = null;
       this.enemies = [];
@@ -179,14 +179,14 @@ export class Game {
       const currentEnemies = this.totalEnemiesInRoom; // Cache it
       this.enemiesToSpawn = currentEnemies;
       this.showNotification(`Floor ${this.floor}: ` + this.getFloorName());
-      
+
       // Reset player position to start of room
       if (this.player) {
           this.player.position = { x: this.canvas.width / 2, y: this.roomHeight - 200 };
       }
   }
 
-  private checkUnlocks() {
+  checkUnlocks() {
       this.abilities.forEach(a => {
           if (!a.isUnlocked && this.level >= a.unlockLevel) {
               a.isUnlocked = true;
