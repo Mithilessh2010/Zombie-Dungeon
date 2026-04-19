@@ -200,29 +200,29 @@ export class Game {
   private getInitialAbilities(cls: PlayerClass): Ability[] {
       const list: Ability[] = [];
       if (cls === 'knight') {
-          list.push({ id: 'k1', name: 'Shield Block', description: 'Reduction', icon: 'Shield', cooldown: 8, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: 'LMB' });
-          list.push({ id: 'k2', name: 'Heavy Strike', description: 'Stun Blow', icon: 'Sword', cooldown: 5, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
-          list.push({ id: 'k3', name: 'Whirlwind', description: 'Burn Spin', icon: 'RotateCw', cooldown: 12, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
-          list.push({ id: 'k4', name: 'Charge', description: 'Speed Dash', icon: 'Zap', cooldown: 7, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
-          list.push({ id: 'k5', name: 'Guard Break', description: 'Full Stun', icon: 'Crown', cooldown: 15, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'k1', name: 'Shield Block', description: 'Reduction', icon: 'Shield', cooldown: 8, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
+          list.push({ id: 'k2', name: 'Heavy Strike', description: 'Stun Blow', icon: 'Sword', cooldown: 5, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
+          list.push({ id: 'k3', name: 'Whirlwind', description: 'Burn Spin', icon: 'RotateCw', cooldown: 12, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
+          list.push({ id: 'k4', name: 'Charge', description: 'Speed Dash', icon: 'Zap', cooldown: 7, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'k5', name: 'Guard Break', description: 'Full Stun', icon: 'Crown', cooldown: 15, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '5' });
       } else if (cls === 'rogue') {
-          list.push({ id: 'r1', name: 'Dash Strike', description: 'Bleed Dash', icon: 'Zap', cooldown: 4, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: 'LMB' });
-          list.push({ id: 'r2', name: 'Poison Blade', description: 'Poison DOT', icon: 'FlaskConical', cooldown: 10, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
-          list.push({ id: 'r3', name: 'Shadow Step', description: 'Backstab', icon: 'Ghost', cooldown: 8, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
-          list.push({ id: 'r4', name: 'Smoke Bomb', description: 'Area Stun', icon: 'Cloud', cooldown: 18, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
-          list.push({ id: 'r5', name: 'Backstab', description: 'Crit Force', icon: 'Sword', cooldown: 12, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'r1', name: 'Dash Strike', description: 'Bleed Dash', icon: 'Zap', cooldown: 4, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
+          list.push({ id: 'r2', name: 'Poison Blade', description: 'Poison DOT', icon: 'FlaskConical', cooldown: 10, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
+          list.push({ id: 'r3', name: 'Shadow Step', description: 'Backstab', icon: 'Ghost', cooldown: 8, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
+          list.push({ id: 'r4', name: 'Smoke Bomb', description: 'Area Stun', icon: 'Cloud', cooldown: 18, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'r5', name: 'Backstab', description: 'Crit Force', icon: 'Sword', cooldown: 12, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '5' });
       } else if (cls === 'mage') {
-          list.push({ id: 'm1', name: 'Fire Burst', description: 'Burn Blast', icon: 'Flame', cooldown: 6, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: 'LMB' });
-          list.push({ id: 'm2', name: 'Ice Shard', description: 'Chill Bolt', icon: 'Snowflake', cooldown: 5, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
-          list.push({ id: 'm3', name: 'Arcane Wave', description: 'Push Back', icon: 'Waves', cooldown: 9, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
-          list.push({ id: 'm4', name: 'Blink', description: 'Phase Shift', icon: 'MoveUpRight', cooldown: 6, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
-          list.push({ id: 'm5', name: 'Lightning', description: 'AOE Zap', icon: 'Star', cooldown: 10, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'm1', name: 'Fire Burst', description: 'Burn Blast', icon: 'Flame', cooldown: 6, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
+          list.push({ id: 'm2', name: 'Ice Shard', description: 'Chill Bolt', icon: 'Snowflake', cooldown: 5, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
+          list.push({ id: 'm3', name: 'Arcane Wave', description: 'Push Back', icon: 'Waves', cooldown: 9, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
+          list.push({ id: 'm4', name: 'Blink', description: 'Phase Shift', icon: 'MoveUpRight', cooldown: 6, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'm5', name: 'Lightning', description: 'AOE Zap', icon: 'Star', cooldown: 10, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '5' });
       } else if (cls === 'archer') {
-          list.push({ id: 'a1', name: 'Power Shot', description: 'Pushbolt', icon: 'Target', cooldown: 5, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: 'LMB' });
-          list.push({ id: 'a2', name: 'Multi Shot', description: 'Volley', icon: 'ChevronLast', cooldown: 7, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
-          list.push({ id: 'a3', name: 'Roll', description: 'Dodge Roll', icon: 'RefreshCw', cooldown: 3, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
-          list.push({ id: 'a4', name: 'Explode Arrow', description: 'Burn Area', icon: 'Bomb', cooldown: 12, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
-          list.push({ id: 'a5', name: 'Piercing', description: 'Pierce All', icon: 'CloudRain', cooldown: 10, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'a1', name: 'Power Shot', description: 'Pushbolt', icon: 'Target', cooldown: 5, currentCooldown: 0, unlockLevel: 2, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '1' });
+          list.push({ id: 'a2', name: 'Multi Shot', description: 'Volley', icon: 'ChevronLast', cooldown: 7, currentCooldown: 0, unlockLevel: 5, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '2' });
+          list.push({ id: 'a3', name: 'Roll', description: 'Dodge Roll', icon: 'RefreshCw', cooldown: 3, currentCooldown: 0, unlockLevel: 8, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '3' });
+          list.push({ id: 'a4', name: 'Explode Arrow', description: 'Burn Area', icon: 'Bomb', cooldown: 12, currentCooldown: 0, unlockLevel: 11, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '4' });
+          list.push({ id: 'a5', name: 'Piercing', description: 'Pierce All', icon: 'CloudRain', cooldown: 10, currentCooldown: 0, unlockLevel: 14, unlockFloor: 0, isUnlocked: false, type: 'active', keybind: '5' });
       }
       return list;
   }
