@@ -86,19 +86,10 @@ export default function App() {
         }
       };
 
-      // Check for victory
-      const checkVictory = setInterval(() => {
-        if (newGame.towerCompleted && gameState === 'playing') {
-          setGameState('victory');
-          clearInterval(checkVictory);
-        }
-      }, 100);
-
       window.addEventListener('resize', handleResize);
       handleResize();
       return () => {
         window.removeEventListener('resize', handleResize);
-        clearInterval(checkVictory);
         newGame.destroy();
       };
     }
@@ -242,7 +233,7 @@ export default function App() {
       {/* ── PLAYING ── */}
       {gameState === 'playing' && game && (
         <>
-          <HUD game={game} onGameOver={() => setGameState('gameover')} />
+          <HUD game={game} onGameOver={() => setGameState('gameover')} onVictory={() => setGameState('victory')} />
           <AdminPanel game={game} />
         </>
       )}

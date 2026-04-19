@@ -11,6 +11,7 @@ import {
 interface HUDProps {
   game: Game;
   onGameOver: () => void;
+  onVictory: () => void;
 }
 
 // ─── Icon map (small, flat) ─────────────────────────────────────────────────
@@ -305,6 +306,10 @@ export function HUD({ game, onGameOver }: HUDProps) {
         setTimeout(onGameOver, 1400);
         return;
       }
+      if (game.towerCompleted) {
+        setTimeout(onVictory, 500);
+        return;
+      }
       frameId = requestAnimationFrame(update);
     };
 
@@ -313,7 +318,7 @@ export function HUD({ game, onGameOver }: HUDProps) {
       cancelAnimationFrame(frameId);
       if (notifTimeoutRef.current) clearTimeout(notifTimeoutRef.current);
     };
-  }, [game, onGameOver]);
+  }, [game, onGameOver, onVictory]);
 
   const classColor = CLASS_COLOR[stats.playerClass] ?? '#D4A017';
   const hasAbilities = stats.abilities.some(a => a.isUnlocked);
